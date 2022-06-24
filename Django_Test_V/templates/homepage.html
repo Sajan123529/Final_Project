@@ -1,0 +1,709 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ra.TTs Home Page</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{%  static 'css/main.css' %}">
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- header section starts  -->
+
+    <header class="header">
+
+        <a href="#" class="logo"> <img class="Rattslogo" src="/static/images/Ra.TTsLogo.png" alt=""></a>
+
+        <nav class="navbar">
+            <div id="nav-close" class="fas fa-times"></div>
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#shop">shop</a>
+            <a href="#packages">packages</a>
+            <a href="#reviews">reviews</a>
+            <a href="#blogs">blogs</a>
+        </nav>
+
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <a href="{% url 'login' %}" class="login_link">Login</a>
+            <div id="search-btn" class="fas fa-search"></div>
+
+        </div>
+
+    </header>
+
+    <!-- header section ends -->
+
+    <!-- search form  -->
+
+    <div class="search-form">
+
+        <div id="close-search" class="fas fa-times"></div>
+
+        <form action="">
+            <input type="search" name="" placeholder="search here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+    </div>
+
+    <!-- home section starts  -->
+
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>Heaven is Myth Nepal is real</h3>
+            <p>let us make your every trips easy!</p>
+            <a href="#packages" class="btn">book now</a>
+        </div>
+
+        <div class="video-container">
+            <video src="/static/images/homevideotwo.mp4" id="video-slider" loop autoplay muted></video>
+        </div>
+
+    </section>
+
+    <!-- home section ends -->
+
+    <!-- features section starts -->
+    <section class="bookings" id="bookings">
+        <h1 class="heading"> Booking Features </h1>
+
+        <div class="icon-container">
+
+            <div class="icon">
+                <img src="/static/images/flight.png" alt="">
+                <h3>Flight</h3>
+
+            </div>
+
+            <div class="icon">
+                <img src="/static/images/bus.png" alt="">
+                <h3>Bus</h3>
+
+            </div>
+
+            <div class="icon">
+                <img src="/static/images/cablecar.png" alt="">
+                <h3>Cable Car</h3>
+
+            </div>
+
+            <div class="icon">
+                <img src="/static/images/guide.png" alt="">
+                <h3>tourist guide</h3>
+
+            </div>
+
+            <div class="icon">
+                <img src="/static/images/homestay.png" alt="">
+                <h3>Home Stay</h3>
+
+            </div>
+
+            <div class="icon">
+                <img src="/static/images/bike.png" alt="">
+                <h3>Ride Share</h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- features section ends -->
+
+    <!-- category section starts  -->
+
+    <section class="category">
+
+        <h1 class="heading"> Adventures in Nepal</h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="/static/images/bunjee.jpg" alt="">
+                <h3>bungee jump</h3>
+                <p>Bhote Koshi Bungee Jumiping and Ghandruk Bungee Jumping Camp.</p>
+                <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static/images/zipline.jpg" alt="">
+                <h3>zip lines</h3>
+                <p>Dhulikhel Zipline Camp is one of the famous place in Province 3.</p>
+                <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static/images/mountainclimbings.jpg" alt="">
+                <h3>Mountain Climbing</h3>
+                <p>Mt. Everest, Kanchanganga, Ganesh Himal, Makalu, Manaslu and many other mountains.</p>
+                <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static/images/pokharaboating.jpg" alt="">
+                <h3>Boating</h3>
+                <p>Begnas Lake, Phewa Lake, Rara Lake, Se Phoksundo Lake and many other nepali famous lakes.</p>
+                <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static/images/trekkings.jpg" alt="">
+                <h3>Trekking</h3>
+                <p>Gosai Kunda, Bethanchwok Naranthan, Chandragiri, Bhotechaur and many other treks.</p>
+                <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static/images/rafting.jpg" alt="">
+                <h3>Rafting</h3>
+                <p>Trisuli River Rafting, Dudhkoshi River Rafting, Bhote Koshi River Rafting, Kosi River Rafting are some famous river for rafting.</p>
+                <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static/images/chitwan.jpg" alt="">
+                <h3>Jungle Safari</h3>
+                <p>Chitwan National Park, Bardiya National Park, Koshi Tappu Wildlife Reservation and many more dark jungles inside nepal.</p>
+                <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- category section ends -->
+
+    <!-- about section starts  -->
+
+    <section class="about" id="about">
+
+        <div class="image">
+            <img src="/static/images/manag.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <h3> About Rajkumar Tours and Travels (Ra.TTs)</h3>
+            <p>First of all, Rajkumar Tours and Travels (Ra.TTs) would like to most humbly welcome our valuable clients of every continent and its countries. With a startup of 1 year with a good tourist review & experience, we are well known in tourism hospitality
+                for operating both group and individual tours, treks, mountain climbing, adventures like zipline, rafting, bungee jumping, cycling, paragliding, rock climbing, etc. We have been executing adventure travel and tour itineraries with no occasion
+                of complaints regarding our services since the time of our inception. Our customer retention rate is over 90% as the majority of individual clients and group organizers return to book with us year after year. They do this because we listen
+                to them with 100% dedication and provide them with consistently the highest standard of services, personalized to meet or even better exceed their expectations.</p>
+            <p>our motto is to make your holiday, trips, tours and adventure special!</p>
+            <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+        </div>
+
+    </section>
+
+    <!-- about section ends -->
+
+    <!-- shop section starts  -->
+
+    <section class="shop" id="shop">
+
+        <h1 class="heading">featured products</h1>
+
+        <div class="swiper product-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="/static/images/product-1.jpg" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-eye"></a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Trekking Bag</h3>
+                        <div class="price"> Rs.2500 - Rs.5000 </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="/static/images/product-2.jpg" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-eye"></a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Portable Knife </h3>
+                        <div class="price"> Rs.500 - Rs.2500 </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="/static/images/product-3.jpg" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-eye"></a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Sun Glass</h3>
+                        <div class="price"> Rs.300 - Rs.2500 </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="/static/images/product-4.jpg" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-eye"></a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Trekking Shoes</h3>
+                        <div class="price"> Rs.2800 - Rs.7500 </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="/static/images/product-5.jpg" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-eye"></a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Iron Hook</h3>
+                        <div class="price"> Rs.10 - Rs.500 </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="/static/images/product-6.jpg" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-eye"></a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3> Barbque Machine </h3>
+                        <div class="price"> Rs.1500 - Rs.10000 </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+        </div>
+
+    </section>
+
+    <!-- shop section ends -->
+
+    <!-- packages section starts  -->
+
+    <section class="packages" id="packages">
+
+        <h1 class="heading">popular packages</h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/jomsom.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Jomsom to Mustang Tour Package</h3>
+                    <p>Grab the tour package jomsom to mustang with the trip transportation as your choice with affordable price. </p>
+                    <div class="price"> Rs.25,000- Rs.50,000</div>
+                    <a href="#" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/liphulekh.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Humla-Jumla to Liphulekh Trekking Package</h3>
+                    <p>Grab the trekking package Humla-Jumla to Liphulekh with the trustable toursit guide with affordable charges.</p>
+                    <div class="price">Rs.20,000 - Rs.40,000</div>
+                    <a href="#" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/bungee.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Adventure Nepal Trips Package</h3>
+                    <p>Grab the Adventurous trips having bungee jump, rafting, rock climbing and ziplines with affordale price.</p>
+                    <div class="price">Rs.30,000 - Rs.50,000</div>
+                    <a href="#" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/junglesafari.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Adventure Nepal Jungle Safari Package</h3>
+                    <p>Grab the adventure jungle safari on different wildlife reservation and national parks with affordable price.</p>
+                    <div class="price">Rs.25,000 - Rs.45,000</div>
+                    <a href="#" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/mountainbasecamp.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Nepali High Mountian Base Camp</h3>
+                    <p>Grab true adventure and have experience of nepali high mountains with trustable mountain guide with affordable price. </p>
+                    <div class="price">Rs.80,000 - Rs.1,15,000</div>
+                    <a href="#" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/cycling.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3> high hill cycling adventure package</h3>
+                    <p>Grab the non stop high hills cycling adventure of nepal at hilly region with affordable price.</p>
+                    <div class="price">Rs.30,000 - Rs.50,000</div>
+                    <a href="#" class="btn">book now</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- packages section ends -->
+
+    <!-- reviews section starts  -->
+
+    <section class="reviews" id="reviews">
+
+        <h1 class="heading">client's reviews</h1>
+
+        <div class="swiper review-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide slide">
+                    <p class="text">Excellent! Very good service from beginning to end. Even with a COVID-related delay in the middle of it, Lisa stayed in contact with us and got us a reschedule with the utmost of ease. Thank you!</p>
+                    <div class="user">
+                        <img src="/static/images/pic-1.png" alt="">
+                        <div class="info">
+                            <h3>Mr. Hari Lal</h3>
+                            <span>dhuikhel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <p class="text">Travel Online was a great company to deal with. Everything was very simple, professional and we were given all the information we required. Thank you for the great service</p>
+                    <div class="user">
+                        <img src="/static/images/pic-2.png" alt="">
+                        <div class="info">
+                            <h3>Mr. Ram lal</h3>
+                            <span>kritipur</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <p class="text">I had to change my booking due to covid and I know your team was under the pump but I was always reassured and knew my booking was being looked after. We will definitely book other holidays through travel online.</p>
+                    <div class="user">
+                        <img src="/static/images/pic-3.png" alt="">
+                        <div class="info">
+                            <h3>Mr. shyam lal</h3>
+                            <span>lalitpur</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <p class="text">Travel Online was a great company to deal with. Everything was very simple, professional and we were given all the information we required. Thank you for the great service</p>
+                    <div class="user">
+                        <img src="/static/images/pic-4.png" alt="">
+                        <div class="info">
+                            <h3>Ms. maya </h3>
+                            <span>kathmandu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <p class="text">yah Allah!! Liked how you respond with things that matter when making a booking so far in advance, booking received, deposit, paid, details of booking, reminder to pay and the user-friendly app</p>
+                    <div class="user">
+                        <img src="/static/images/pic-5.png" alt="">
+                        <div class="info">
+                            <h3>mr. sultan</h3>
+                            <span>pakistan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <p class="text">Yes would definitely book again.....were really happy with the great deal/special we got for our 3 night stay at mustang, jomsom and lamjung there will be a similar special released soon. Thanks again !!</p>
+                    <div class="user">
+                        <img src="/static/images/pic-6.png" alt="">
+                        <div class="info">
+                            <h3>ms naina</h3>
+                            <span>india</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- reviews section ends -->
+
+    <!-- services section starts  -->
+
+    <section class="services">
+
+        <h1 class="heading"> what we offer </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="/static/images/serv-1.png" alt="">
+                <h3>complete guide</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
+                <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static/images/serv-2.png" alt="">
+                <h3>custom packages</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
+                <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static/images/serv-3.png" alt="">
+                <h3>family trips</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
+                <a href="{% url 'rattsoffer' %}" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static/images/touristguide.png" alt="">
+                <h3>trustable guide</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
+                <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static/images/ticket.png" alt="">
+                <h3>ticket booking</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
+                <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="/static/images/serv-6.png" alt="">
+                <h3>various adventures</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
+                <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- services section ends -->
+
+    <!-- blogs section starts  -->
+
+    <section class="blogs" id="blogs">
+
+        <h1 class="heading"> our daily posts </h1>
+
+        <div class="swiper blogs-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide slide">
+                    <img src="/static/images/blog2.jpg" alt="">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin </a>
+                    </div>
+                    <h3>Bhakundebesi-Kavre</h3>
+                    <p>Most beautiful place on Kavrepalanchwok. Picture on Fresh Morning.</p>
+                    <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <img src="/static/images/blog3.jpg" alt="">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin </a>
+                    </div>
+                    <h3>Jomsom- Nepal</h3>
+                    <p>Rural Place where changra are used to export import goods. What a amazing view!</p>
+                    <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <img src="/static/images/blog5.jpg" alt="">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin </a>
+                    </div>
+                    <h3>Bhaktapur Durbar Square</h3>
+                    <p>neighbour district of kathmandu and lalitpur and rich in temples and cultural heritage.</p>
+                    <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <img src="/static/images/blog1.jpg" alt="">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin </a>
+                    </div>
+                    <h3>dang- nepal</h3>
+                    <p>most of the hilly region of dang covers with snow during winter.</p>
+                    <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <img src="/static/images/soyambu.jpg" alt="">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin </a>
+                    </div>
+                    <h3>soyambu stupa</h3>
+                    <p>soyambu stupa is most historic stupa in kathmandu valley since lichabi kingdom.</p>
+                    <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <img src="/static/images/buddha.jpg" alt="">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin </a>
+                    </div>
+                    <h3>Baudha Stupa</h3>
+                    <p>baudha stupa is most historic stupa in kathmandu valley since lichabi kingdom.</p>
+                    <a href="{% url 'rattsoffer' %}" target="blank" class="btn">read more</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- blogs section ends -->
+
+    <!-- newsletter section  -->
+
+    <section class="newsletter">
+
+        <div class="content">
+            <h1 class="heading">subscirbe now</h1>
+            <p>We focus on growing our list all of the time as newer subscribers are more engaged, subscribe your mail and become a members of Ra.TTs and mail your blogs to post on our website.</p>
+            <br>
+            <p>our official email: rattsnepal11@gmail.com/sajansamsher1980@gmail.com</p>
+            <form action="">
+                <input type="email" name="" placeholder="enter your email" id="" class="email">
+                <input type="submit" value="subscribe" class="btn">
+            </form>
+        </div>
+
+    </section>
+
+    <!--partners-->
+    <section class="clients">
+
+        <div class="swiper clients-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide silde"><img src="/static/images/LogoNepalTourGuideTeam.jpg" alt=""></div>
+                <div class="swiper-slide silde"><img src="/static/images/himalayaguide.jpeg" alt=""></div>
+                <div class="swiper-slide silde"><img src="/static/images/client-logo-1.png" alt=""></div>
+                <div class="swiper-slide silde"><img src="/static/images/client-logo-2.png" alt=""></div>
+            </div>
+        </div>
+
+    </section>
+    <!--partners-->
+
+
+    <!-- custom js file link  -->
+    <script src="{%  static 'js/script.js' %}"></script>
+
+{% endblock content %}
+

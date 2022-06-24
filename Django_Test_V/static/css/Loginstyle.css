@@ -1,0 +1,119 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  overflow: hidden;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(70, 70, 70);
+  background-color: #eaecee;
+}
+
+.login-div{
+  width: 370px;
+  padding: 35px;
+  border-radius: 20px;
+  background-color: #e6e6e6;
+  box-shadow: 9px 9px 12px #c2c1c1, 
+  -9px -9px 12px #fff;
+}
+
+.logo{
+  margin-top: 20%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 95px;
+  box-shadow: 0px 0px 2px #5f5f5f , 0px 0px 0px 5px #e1e4e7, 8px 8px 15px #a7aaaf, -8px -8px 15px #fff;
+}
+
+.title{
+  text-align: center;
+  font-size: 24px;
+  padding-top: 24px;
+  letter-spacing: 0.5px;
+}
+
+
+.field{
+  width: 100%;
+  padding: 10px 5px 5px 5px;
+}
+
+.field input {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 14px;
+  color: #555;
+  padding: 20px 10px 20px 5px;
+}
+
+.username , .password{
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: inset 8px 8px 8px #c2d3d4 , inset -8px -8px 8px rgb(244, 255, 255);
+}
+
+.field svg{
+  height: 22px;
+  margin: 0 18px -6px 7px;
+}
+
+.login-div .field .remember{
+  display: flex;
+  text-align: center;
+  gap: 5px;
+  padding: -20px 0;
+}
+
+.login-div .field .remember label{
+  color:var(--text-color-2);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.signin-button{
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  height: 40px;
+  margin: auto 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  text-align: center;
+  background-color: #02c8db;
+  box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #fff;
+  transition: all 0.1s;
+}
+
+.signin-button:hover{
+  background-color: #00e1ff;
+}
+
+.signin-button:active{
+  background-color: #ff6a2f;
+}
+
+.links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.links a {
+  text-decoration: none;
+  color: #636363;
+  font-size: 15px;
+}

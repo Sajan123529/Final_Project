@@ -1,0 +1,365 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+
+<head>
+    <title>Ra.TTs Dashboard</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <script src="https://kit.fontawesome.com/6dc45ef80b.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{%static '/css/userprofile.css'%}">
+</head>
+
+<body>
+    <!-- header section starts  -->
+    <header class="header">
+
+        <a href="#" class="logo"> <img src="{%static '/images/Ra.TTsLogo.png'%}" alt=""> </a>
+
+        <div class="icons">
+            <a href="#">
+                <div class="fa-solid fa-cart-shopping" id="cart_btn"></div>
+            </a>
+            <div class="fa-solid fa-bell" id="bell_btn"></div>
+            <div class="fas fa-user" id="User-Profile"></div>
+            <div class="fas fa-bars" id="menu_btn"></div>
+        </div>
+
+        <nav class="navbar">
+            <a href="#">Statement</a>
+            <a href="#">Booking Lists</a>
+            <a href="#">Change Password</a>
+            <a href="#">Report a Problem</a>
+            <a href="#">Customer Support</a>
+            <a href="{% url 'logout'%}">Log Out</a>
+        </nav>
+
+        <div action="" class="User-Profile">
+            <img src="imgages/pic-4" alt="">
+            <h2>User Name</h2>
+            <h2>9800000000</h2>
+            <h2>email11@gmail.com</h2>
+        </div>
+
+    </header>
+    <!-- header section ends -->
+
+    <!-- user name and welcome part starts-->
+    {% if user.is_authenticated %}
+        <div class="welcomegreeting">
+            <img class="usericon" src="{%static '/images/userprofile.png'%}" alt="">
+            <form id="logoutForm" method="post" class="navbar-right">
+                {% csrf_token %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><span class="navbar-brand">{{ user.username }}</span></li>
+                    <li><span class="navbar-brand">Hello! {{ user.username }}. Welcome to Ra.TTs DashBoard. </span></li>
+                </ul>
+            </form>
+        </div>
+
+    <!-- features section starts -->
+    <section class="bookings" id="bookings">
+        <h1 class="heading"> Booking Features </h1>
+
+        <div class="icon-container">
+
+            <div class="icon">
+                <a href="flightticket.html">
+                    <img src="/static/images/flight.png" alt="">
+                </a>
+                <h3>Flight</h3>
+            </div>
+
+            <div class="icon">
+                <a href="busticket.html">
+                    <img src="/static/images/bus.png" alt="">
+                </a>
+                <h3>Bus</h3>
+            </div>
+
+            <div class="icon">
+                <img src="/static/images/cablecar.png" alt="">
+                <h3>Cable Car</h3>
+            </div>
+
+            <div class="icon">
+                <a href="touristguides.html">
+                    <img src="/static/images/guide.png" alt="">
+                </a>
+                <h3>tourist guide</h3>
+            </div>
+
+            <div class="icon">
+                <a href="roombooking.html">
+                    <img src="/static/images/homestay.png" alt="">
+                </a>
+                <h3>Home Stay</h3>
+            </div>
+
+            <div class="icon">
+                <img src="/static/images/bike.png" alt="">
+                <h3>Ride Share</h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- features section ends -->
+
+    <!-- shop section starts  -->
+
+    <section class="shop" id="shop">
+
+        <h1 class="heading">featured products</h1>
+
+        <div class="swiper product-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="/static/images/product-1.jpg" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-shopping-cart"></a>
+                            <a href="#" class="fas fa-eye"></a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Trekking Bag</h3>
+                        <div class="price"> Rs.2500 - Rs.5000 </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="/static/images/product-2.jpg" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-shopping-cart"></a>
+                            <a href="#" class="fas fa-eye"></a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Portable Knife </h3>
+                        <div class="price"> Rs.500 - Rs.2500 </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="/static/images/product-3.jpg" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-shopping-cart"></a>
+                            <a href="#" class="fas fa-eye"></a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Sun Glass</h3>
+                        <div class="price"> Rs.300 - Rs.2500 </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="/static/images/product-4.jpg" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-shopping-cart"></a>
+                            <a href="#" class="fas fa-eye"></a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Trekking Shoes</h3>
+                        <div class="price"> Rs.2800 - Rs.7500 </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="/static/images/product-5.jpg" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-shopping-cart"></a>
+                            <a href="#" class="fas fa-eye"></a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Iron Hook</h3>
+                        <div class="price"> Rs.10 - Rs.500 </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="/static/images/product-6.jpg" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-shopping-cart"></a>
+                            <a href="#" class="fas fa-eye"></a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3> Barbque Machine </h3>
+                        <div class="price"> Rs.1500 - Rs.10000 </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+        </div>
+
+    </section>
+
+    <!-- shop section ends -->
+
+    <!-- packages section starts  -->
+
+    <section class="packages" id="packages">
+
+        <h1 class="heading">popular packages</h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/jomsom.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Jomsom to Mustang Tour Package</h3>
+                    <p>Grab the tour package jomsom to mustang with the trip transportation as your choice with affordable price. </p>
+                    <div class="price"> Rs.25,000- Rs.50,000</div>
+                    <a href="packagepayment.html" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/liphulekh.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Humla-Jumla to Liphulekh Trekking Package</h3>
+                    <p>Grab the trekking package Humla-Jumla to Liphulekh with the trustable toursit guide with affordable charges.</p>
+                    <div class="price">Rs.20,000 - Rs.40,000</div>
+                    <a href="packagepayment.html" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/bungee.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Adventure Nepal Trips Package</h3>
+                    <p>Grab the Adventurous trips having bungee jump, rafting, rock climbing and ziplines with affordale price.</p>
+                    <div class="price">Rs.30,000 - Rs.50,000</div>
+                    <a href="packagepayment.html" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/junglesafari.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Adventure Nepal Jungle Safari Package</h3>
+                    <p>Grab the adventure jungle safari on different wildlife reservation and national parks with affordable price.</p>
+                    <div class="price">Rs.25,000 - Rs.45,000</div>
+                    <a href="packagepayment.html" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/mountainbasecamp.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Nepali High Mountian Base Camp</h3>
+                    <p>Grab true adventure and have experience of nepali high mountains with trustable mountain guide with affordable price. </p>
+                    <div class="price">Rs.80,000 - Rs.1,15,000</div>
+                    <a href="packagepayment.html" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/cycling.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3> high hill cycling adventure package</h3>
+                    <p>Grab the non stop high hills cycling adventure of nepal at hilly region with affordable price.</p>
+                    <div class="price">Rs.30,000 - Rs.50,000</div>
+                    <a href="packagepayment.html" class="btn">book now</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+        <script src="{%static '/js/userprofile.js'%}"></script>
+
+
+{% else %}
+
+<p>User not Valid</p>
+
+{% endif %}
+{%endblock%}
