@@ -17,7 +17,6 @@ from .forms import AdultForm, ChildrenForm, DestinationHotelForm, RoomTypeForm, 
 #     return render(request,"flightbooking.html")
 
 
-
 @login_required(login_url="/login/")
 def BookingPage_view(request):
     if request.method == "POST":
@@ -38,6 +37,9 @@ def BookingPage_view(request):
         Choose_Hotel = request.POST.get('Choose_Hotel')
         Bed_Type = request.POST.get('Bed_Type')
         Description = request.POST.get('Description')
+
+        context={}
+        context['form']= AdultForm(), ChildrenForm(), DestinationHotelForm(), RoomTypeForm(), ChooseHotelForm(), BedTypeForm()
 
         bookingdata = Room(
             Name=Name,
@@ -61,4 +63,4 @@ def BookingPage_view(request):
         bookingdata.save()
         redirect('booking')
 
-    return render(request, "roombooking.html")
+    return render(request, "roombooking.html", context)
