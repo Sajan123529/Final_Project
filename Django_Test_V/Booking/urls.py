@@ -4,5 +4,5 @@ from . import views
 from django.urls import include, re_path
 
 urlpatterns = [
-    re_path('booking/', views.BookingPage_View, name='booking'),
+    re_path('booking/', views.BookingPage_view, name='booking'),
 ]

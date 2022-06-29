@@ -450,6 +450,7 @@ h2.heading {
     color: #555;
     background-color: white;
     width: auto;
+    margin-top: -3px;
 }
 
 .controls textarea {
