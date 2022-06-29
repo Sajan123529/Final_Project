@@ -63,4 +63,4 @@ def BookingPage_view(request):
         bookingdata.save()
         redirect('booking')
 
-    return render(request, "roombooking.html", context)
+    return render(request, "roombooking.html")
