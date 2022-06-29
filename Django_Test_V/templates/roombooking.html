@@ -76,7 +76,7 @@
                         </div>
                         <div class="col-1-3">
                             <div class="controls">
-                                <input type="number" id="street-number" class="floatLabel" name="city">
+                                <input type="text" id="street-number" class="floatLabel" name="city">
                                 <label>City</label>
                             </div>
                         </div>
@@ -121,7 +121,9 @@
                     <div class="col-1-3 col-1-3-sm">
                         <div class="controls">
                             <i class="fa fa-sort"></i>
-                            <select class="floatLabel" id="choice">
+                            {{% form %}}
+                            {% csrf_token %}
+                            <select class="floatLabel" name="Adult">
                                 <option></option>
                                 <option>1</option>
                                 <option>2</option>
@@ -132,43 +134,26 @@
 
                         <div class="controls">
                             <i class="fa fa-sort"></i>
-                            <select class="floatLabel" id="choice">
-                                <option></option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>
+                            {{% form %}}
+                            {% csrf_token %}
+                            <select class="floatLabel" name="Children"></select>
                             <label><i class="fa fa-child"></i>Children</label>
                         </div>
                     </div>
                     <div class="col-1-3 col-1-3-sm">
                         <div class="controls">
                             <i class="fa fa-sort"></i>
-                            <select class="floatLabel">
-                                <option></option>
-                                <option>Kathmandu</option>
-                                <option>Bhaktapur</option>
-                                <option>Sanga</option>
-                                <option>Jagati</option>
-                                <option>Banepa</option>
-                                <option>DHulikhel</option>
-                                <option>28 Kilo</option>
-                                <option>Panauti</option>
-                                <option>KUSHS</option>
-                                <option>Devithan-Dhulikhel</option>
-                            </select>
+                            {{% form %}}
+                            {% csrf_token %}
+                            <select class="floatLabel" name="Destination_Hotel"></select>
                             <label><i class="fa fa-location-arrow"></i>Destination Hotel</label>
                         </div>
 
                         <div class="controls">
                             <i class="fa fa-sort"></i>
-                            <select class="floatLabel">
-                                <option></option>
-                                <option>With Bathroom</option>
-                                <option>Without Bathroom</option>
-                                <option>V.I.P Room</option>
-                                <option>Normal Room</option>
-                            </select>
+                            {{% form %}}
+                            {% csrf_token %}
+                            <select class="floatLabel" name="Room_Type"></select>
                             <label>Room Type</label>
                         </div>
                     </div>
@@ -176,22 +161,9 @@
                     <div class="col-1-3 col-1-3-sm">
                         <div class="controls">
                             <i class="fa fa-sort"></i>
-                            <select class="floatLabel">
-                                <option></option>
-                                <option>Hotel Annapurna</option>
-                                <option>Kumar Hotel</option>
-                                <option>Hotel A One</option>
-                                <option>Family Resort</option>
-                                <option>Dhulikhel Valley Resort</option>
-                                <option>Dakshinkali Home Stay-OYO</option>
-                                <option>Bhaktapur Valley View Resort</option>
-                                <option>Panauti Hotel</option>
-                                <option>KU Home Stay</option>
-                                <option>Devithan Valley Resort</option>
-                                <option>Chandeswori Home Stay-OYO</option>
-                                <option>Kavre-Bhaktapur Valley Resort</option>
-                                <option>Ra.Ts Valley Resort</option>
-                            </select>
+                            {{% form %}}
+                            {% csrf_token %}
+                            <select class="floatLabel" name="Choose_Hotel"></select>
                             <label><i class="fa fa-hotel"></i>Choose Hotel</label>
                         </div>
                     </div>
@@ -199,12 +171,9 @@
                     <div class="col-1-3 col-1-3-sm">
                         <div class="controls">
                             <i class="fa fa-sort"></i>
-                            <select class="floatLabel">
-                                <option></option>
-                                <option>Single Bed</option>
-                                <option>Double Bed</option>
-                                <option>Group Bed</option>
-                            </select>
+                            {{% form %}}
+                            {% csrf_token %}
+                            <select class="floatLabel" name="Bed_Type"></select>
                             <label><i class="fa fa-bed"></i>Bed Type</label>
                         </div>
                     </div>
