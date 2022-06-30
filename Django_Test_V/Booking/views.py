@@ -5,7 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponse
 from django.shortcuts import render
 from .models import Room
-from .forms import AdultForm, ChildrenForm, DestinationHotelForm, RoomTypeForm, ChooseHotelForm, BedTypeForm
+from .models import Room
+from .forms import RoomForm
 
 
 # Create your views here.
@@ -19,6 +20,7 @@ from .forms import AdultForm, ChildrenForm, DestinationHotelForm, RoomTypeForm, 
 
 @login_required(login_url="/login/")
 def BookingPage_view(request):
+    context = {}
     if request.method == "POST":
         Name = request.POST.get('Name')
         Email = request.POST.get('Email')
@@ -38,8 +40,7 @@ def BookingPage_view(request):
         Bed_Type = request.POST.get('Bed_Type')
         Description = request.POST.get('Description')
 
-        context={}
-        context['form']= AdultForm(), ChildrenForm(), DestinationHotelForm(), RoomTypeForm(), ChooseHotelForm(), BedTypeForm()
+        form = Room(request.POST or None, request.FILES or None)
 
         bookingdata = Room(
             Name=Name,
@@ -63,4 +64,5 @@ def BookingPage_view(request):
         bookingdata.save()
         redirect('booking')
 
-    return render(request, "roombooking.html")
+        context['form'] = form
+    return render(request, "roombooking.html", context)

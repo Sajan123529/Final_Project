@@ -15,7 +15,6 @@ class RoomCat(models.Model):
 
 class Room(models.Model):
     Adult = (
-        ("", ""),
         ("1", "one"),
         ("2", "two"),
         ("3", "three"),
@@ -24,7 +23,6 @@ class Room(models.Model):
     )
 
     Children=(
-        ("", ""),
         ("1", "one"),
         ("2", "two"),
         ("3", "three"),
@@ -33,7 +31,6 @@ class Room(models.Model):
     )
 
     Destination_Hotel=(
-        ("", ""),
         ("kathmandu", "kathmandu"),
         ("bhaktapur", "bhaktapur"),
         ("sanga", "sanga"),
@@ -43,7 +40,6 @@ class Room(models.Model):
     )
 
     Room_Type=(
-        ("", ""),
         ("with bathroom", "with bathroom"),
         ("without bathroom", "without bathroom"),
         ("deluxe room", "deluxe room"),
@@ -52,7 +48,6 @@ class Room(models.Model):
     )
 
     Choose_Hotel=(
-        ("", ""),
         ("abc", "abc"),
         ("bcd", "bcd"),
         ("efg", "efg"),
@@ -61,7 +56,6 @@ class Room(models.Model):
     )
 
     Bed_Type=(
-        ("", ""),
         ("abc", "abc"),
         ("bcd", "bcd"),
         ("efg", "efg"),

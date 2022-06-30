@@ -49,7 +49,7 @@
 
     <!-- booking form starts -->
     <section>
-        <form action="/booking/" method="POST">
+        <form action="/booking/" method="POST" method="get">
             {% csrf_token %}
             <!--  General -->
             <div class="form-group">
@@ -119,11 +119,11 @@
                 </div>
 
                 <form method="GET">
+                    {% csrf_token %}
                     <div class="grid">
                         <div class="col-1-3 col-1-3-sm">
                             <div class="controls">
                                 <i class="fa fa-sort"></i>
-                                {{ form }}
                                 {% csrf_token %}
                                 <select class="floatLabel" name="Adult"></select>
                                 <label><i class="fa fa-male"></i>Adults 18+</label>
@@ -131,8 +131,6 @@
 
                             <div class="controls">
                                 <i class="fa fa-sort"></i>
-                                {{ form }}
-                                {% csrf_token %}
                                 <select class="floatLabel" name="Children"></select>
                                 <label><i class="fa fa-child"></i>Children</label>
                             </div>
@@ -140,15 +138,11 @@
                         <div class="col-1-3 col-1-3-sm">
                             <div class="controls">
                                 <i class="fa fa-sort"></i>
-                                {{ form }}
-                                {% csrf_token %}
                                 <select class="floatLabel" name="Destination_Hotel"></select>
                                 <label><i class="fa fa-location-arrow"></i>Destination Hotel</label>
                             </div>
                             <div class="controls">
                                 <i class="fa fa-sort"></i>
-                                {{ form }}
-                                {% csrf_token %}
                                 <select class="floatLabel" name="Room_Type"></select>
                                 <label>Room Type</label>
                             </div>
@@ -156,8 +150,6 @@
                         <div class="col-1-3 col-1-3-sm">
                             <div class="controls">
                                 <i class="fa fa-sort"></i>
-                                {{ form }}
-                                {% csrf_token %}
                                 <select class="floatLabel" name="Choose_Hotel"></select>
                                 <label><i class="fa fa-hotel"></i>Choose Hotel</label>
                             </div>
@@ -165,8 +157,6 @@
                         <div class="col-1-3 col-1-3-sm">
                             <div class="controls">
                                 <i class="fa fa-sort"></i>
-                                {{ form }}
-                                {% csrf_token %}
                                 <select class="floatLabel" name="Bed_Type"></select>
                                 <label><i class="fa fa-bed"></i>Bed Type</label>
                             </div>
