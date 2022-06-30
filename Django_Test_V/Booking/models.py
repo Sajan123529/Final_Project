@@ -71,14 +71,14 @@ class Room(models.Model):
 
     Name = models.CharField(max_length=200)
     Email = models.CharField(max_length=100)
-    Phone = models.IntegerField(max_length=50)
+    Phone = models.IntegerField()
     District = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     Street = models.CharField(max_length=100)
-    Emergency_Phone = models.IntegerField(max_length=50)
+    Emergency_Phone = models.IntegerField()
     Country = models.CharField(max_length=100)
-    Arrive_Date = models.DateTimeField(max_length=50)
-    Depart_Date = models.DateTimeField(max_length=50)
+    Arrive_Date = models.DateField(max_length=50)
+    Depart_Date = models.DateField(max_length=50)
     Adult = models.CharField(max_length=50, choices=Adult)
     Children = models.CharField(max_length=50, choices=Children)
     Destination_Hotel = models.CharField(max_length=200, choices=Destination_Hotel)
@@ -95,11 +95,11 @@ class Room(models.Model):
 class Booking(models.Model):
     User = models.ForeignKey(User, on_delete=models.CASCADE)
     Room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    Arrive_Date = models.DateTimeField()
-    Depart_Date = models.DateTimeField()
+    Arrive_Date = models.DateField()
+    Depart_Date = models.DateField()
 
     def __str__(self):
-        return f'{self.user} has booked From = {self.Arrive_Date.strftime("%d-%b-%Y %H:%M")} To = {self.Depart_Date.strftime("%d-%b-%Y %H:%M")}{self.room}'
+        return f'{self.user} has booked From = {self.Arrive_Date("%d-%b-%Y")} To = {self.Depart_Date("%d-%b-%Y")}{self.room}'
 
 
 class FlightCat(models.Model):
@@ -119,14 +119,14 @@ class FlightType(models.Model):
 class Flight(models.Model):
     Name = models.CharField(max_length=200)
     Email = models.CharField(max_length=100)
-    Phone = models.IntegerField(max_length=50)
+    Phone = models.IntegerField()
     District = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     Street = models.CharField(max_length=100)
-    Emergency_Phone = models.IntegerField(max_length=50)
+    Emergency_Phone = models.IntegerField()
     Country = models.CharField(max_length=100)
-    Departure_Date = models.DateTimeField(max_length=50)
-    Landing_Date = models.DateTimeField(max_length=50)
+    Departure_Date = models.DateField(max_length=50)
+    Landing_Date = models.DateField(max_length=50)
     Adult = models.CharField(max_length=50)
     Children = models.CharField(max_length=50)
     Departure_Airport = models.CharField(max_length=50)
@@ -142,10 +142,10 @@ class Flight(models.Model):
 class FlightBook(models.Model):
     User = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     Flight = models.ForeignKey(Flight, on_delete=models.CASCADE)
-    Departure_Date = models.DateTimeField()
-    Landing_Date = models.DateTimeField()
+    Departure_Date = models.DateField()
+    Landing_Date = models.DateField()
 
     def __str__(self):
-        return f'{self.user} has booked From = {self.Arrive_Date.strftime("%d-%b-%Y %H:%M")} To = {self.Depart_Date.strftime("%d-%b-%Y %H:%M")}'
+        return f'{self.user} has booked From = {self.Arrive_Date("%d-%b-%Y")} To = {self.Depart_Date("%d-%b-%Y")}'
 
 

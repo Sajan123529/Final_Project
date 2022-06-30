@@ -4,10 +4,10 @@ from .models import RoomCat
 
 
 class AvailabilityForm(forms.Form):
-    Arrive_Date = forms.DateTimeField(
-        required=True, input_formats=["%Y-%m-%dT%H:%M", "%Y-%m-%dT%H:%M%Z"], widget=forms.DateTimeInput(attrs={'type': 'datetime-local'}))
-    Depart_Date = forms.DateTimeField(
-        required=True, input_formats=["%Y-%m-%dT%H:%M", "%Y-%m-%dT%H:%M%Z"], widget=forms.DateTimeInput(attrs={'type': 'datetime-local'}))
+    Arrive_Date = forms.DateField(
+        required=True, input_formats=["%Y-%m-%d", "%Y-%m-%d"], widget=forms.DateInput(attrs={'type': 'date-local'}))
+    Depart_Date = forms.DateField(
+        required=True, input_formats=["%Y-%m-%d", "%Y-%m-%d"], widget=forms.DateInput(attrs={'type': 'date-local'}))
 
 
 Adult =(
