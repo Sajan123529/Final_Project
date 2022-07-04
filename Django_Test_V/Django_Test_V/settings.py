@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     'HomeApp',
     'UserLogReg',
     'UserProfile',
-    'Booking',
-    'rattsoffer'
+    'rattsoffer',
+    'Roombooking',
+    'shop',
+    'crispy_forms',
 ]
 
 # Middleware framework
@@ -65,7 +67,7 @@ ROOT_URLCONF = 'Django_Test_V.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),os.path.join(BASE_DIR, 'HomeApp/templates'), os.path.join(BASE_DIR, 'UserLogReg/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),os.path.join(BASE_DIR, 'HomeApp/templates'), os.path.join(BASE_DIR, 'UserLogReg/templates'), os.path.join(BASE_DIR, 'shop/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -27,6 +27,7 @@ urlpatterns = [
     re_path('',include('HomeApp.urls')),
     re_path('',include('UserLogReg.urls')),
     re_path('',include('UserProfile.urls')),
-    re_path('',include('Booking.urls')),
     re_path('',include('rattsoffer.urls')),
+    re_path('',include('Roombooking.urls')),
+    re_path('',include('shop.urls')),
 ]

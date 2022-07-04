@@ -8,6 +8,8 @@ Command-line utility for administrative tasks.
 
 import os
 import sys
+import sqlite3
+con = sqlite3.connect("db.sqlite3")
 
 if __name__ == '__main__':
     os.environ.setdefault(

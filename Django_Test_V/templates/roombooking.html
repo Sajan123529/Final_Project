@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load static %}{% block footer %}{% endblock footer%} {% block content %}
+{% extends "base.html" %} {% load static %}{% block footer %}{% endblock footer%} {% block content %} {% load crispy_forms_tags %}
 
 <head>
     <meta charset="UTF-8">
@@ -49,8 +49,9 @@
 
     <!-- booking form starts -->
     <section>
-        <form action="/booking/" method="POST" method="get">
+        <form method="POST">
             {% csrf_token %}
+            {{ form|crispy }}
             <!--  General -->
             <div class="form-group">
                 <h3>Room Booking</h3>
@@ -118,54 +119,49 @@
                     </div>
                 </div>
 
-                <form method="GET">
-                    {% csrf_token %}
-                    <div class="grid">
-                        <div class="col-1-3 col-1-3-sm">
-                            <div class="controls">
-                                <i class="fa fa-sort"></i>
-                                {% csrf_token %}
-                                <select class="floatLabel" name="Adult"></select>
-                                <label><i class="fa fa-male"></i>Adults 18+</label>
-                            </div>
-
-                            <div class="controls">
-                                <i class="fa fa-sort"></i>
-                                <select class="floatLabel" name="Children"></select>
-                                <label><i class="fa fa-child"></i>Children</label>
-                            </div>
+                <div class="grid">
+                    <div class="col-1-3 col-1-3-sm">
+                        <div class="controls">
+                            <i class="fa fa-sort"></i>
+                            <select class="floatLabel" name="Adult"></select>
+                            <label><i class="fa fa-male"></i>Adults 18+</label>
                         </div>
-                        <div class="col-1-3 col-1-3-sm">
-                            <div class="controls">
-                                <i class="fa fa-sort"></i>
-                                <select class="floatLabel" name="Destination_Hotel"></select>
-                                <label><i class="fa fa-location-arrow"></i>Destination Hotel</label>
-                            </div>
-                            <div class="controls">
-                                <i class="fa fa-sort"></i>
-                                <select class="floatLabel" name="Room_Type"></select>
-                                <label>Room Type</label>
-                            </div>
-                        </div>
-                        <div class="col-1-3 col-1-3-sm">
-                            <div class="controls">
-                                <i class="fa fa-sort"></i>
-                                <select class="floatLabel" name="Choose_Hotel"></select>
-                                <label><i class="fa fa-hotel"></i>Choose Hotel</label>
-                            </div>
-                        </div>
-                        <div class="col-1-3 col-1-3-sm">
-                            <div class="controls">
-                                <i class="fa fa-sort"></i>
-                                <select class="floatLabel" name="Bed_Type"></select>
-                                <label><i class="fa fa-bed"></i>Bed Type</label>
-                            </div>
+                        <div class="controls">
+                            <i class="fa fa-sort"></i>
+                            <select class="floatLabel" name="Children"></select>
+                            <label><i class="fa fa-child"></i>Children</label>
                         </div>
                     </div>
-                </form>
+                    <div class="col-1-3 col-1-3-sm">
+                        <div class="controls">
+                            <i class="fa fa-sort"></i>
+                            <select class="floatLabel" name="Destination_Hotel"></select>
+                            <label><i class="fa fa-location-arrow"></i>Destination Hotel</label>
+                        </div>
+                        <div class="controls">
+                            <i class="fa fa-sort"></i>
+                            <select class="floatLabel" name="Room_Type"></select>
+                            <label>Room Type</label>
+                        </div>
+                    </div>
+                    <div class="col-1-3 col-1-3-sm">
+                        <div class="controls">
+                            <i class="fa fa-sort"></i>
+                            <select class="floatLabel" name="Choose_Hotel"></select>
+                            <label><i class="fa fa-hotel"></i>Choose Hotel</label>
+                        </div>
+                    </div>
+                    <div class="col-1-3 col-1-3-sm">
+                        <div class="controls">
+                            <i class="fa fa-sort"></i>
+                            <select class="floatLabel" name="Bed_Type"></select>
+                            <label><i class="fa fa-bed"></i>Bed Type</label>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="grid">
-                    <p class="Price">Rs.1,500.00</p>
+                    <label class="Price" name="Rate">Rs.1,500.00</label>
                     <br>
                     <p class="info-text">Give your remarks and remaining data on the field below.</p>
                     <div class="controls">
