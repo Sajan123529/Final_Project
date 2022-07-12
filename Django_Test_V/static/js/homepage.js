@@ -146,7 +146,7 @@ var swiper = new Swiper(".clients-slider", {
 });
 
 
-var modal = document.getElementById("shop .swiper product-slider .swiper-wrapper .swiper-slide slide .mymodal");
+var modal = document.getElementById("Django_Test_V .swiper product-slider .swiper-wrapper .swiper-slide slide .mymodal");
 
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption

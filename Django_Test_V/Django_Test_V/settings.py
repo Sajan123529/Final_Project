@@ -66,7 +66,7 @@ ROOT_URLCONF = 'Django_Test_V.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),os.path.join(BASE_DIR, 'HomeApp/templates'), os.path.join(BASE_DIR, 'UserLogReg/templates'), os.path.join(BASE_DIR, 'shop/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),os.path.join(BASE_DIR, 'HomeApp/templates'), os.path.join(BASE_DIR, 'UserLogReg/templates'), os.path.join(BASE_DIR, 'Django_Test_V/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
