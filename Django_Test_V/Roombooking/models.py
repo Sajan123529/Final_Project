@@ -1,6 +1,5 @@
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User
 from sqlite3 import *
 
 
@@ -15,13 +14,51 @@ class RoomCategory(models.Model):
     def __str__(self):
         return self.Room_Category
 
+
+class Adultfield(models.Model):
+    name = models.CharField(max_length=200)
+    Rate = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+
+class Childrenfield(models.Model):
+    name = models.CharField(max_length=200)
+    Rate = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+
+class RoomTypefield(models.Model):
+    name = models.CharField(max_length=100)
+    Rate = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+
+class BedTypefield(models.Model):
+    name = models.CharField(max_length=100)
+    Rate = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+
+def Ratefield(sender, instance, create, *args, **Kwargs):
+    instance.totalamount = instance.Adultfield.Rate + instance.Childrenfield * instance.RoomTypefield.Rate + instance.BedTypefield.Rate
+    instance.save()
+
+
 Adult_choice = (
-        ("1", "one"),
-        ("2", "two"),
-        ("3", "three"),
-        ("4", "four"),
-        ("5", "five"),
-    )
+    ("1", "one"),
+    ("2", "two"),
+    ("3", "three"),
+    ("4", "four"),
+    ("5", "five"),
+)
 Children_choice = (
     ("1", "one"),
     ("2", "two"),
@@ -48,20 +85,29 @@ Room_choice = (
 )
 
 Choose_Hotel_choice = (
-    ("abc", "abc"),
-    ("bcd", "bcd"),
-    ("efg", "efg"),
-    ("ghi", "ghi"),
-    ("jkl", "jkl"),
+    ("Annapurna", "Annapurna"),
+    ("Kumar Hotel", "Kumar Hotel"),
+    ("Hotel A One", "Hotel A One"),
+    ("Family Resort", "Family Resort"),
+    ("Dhulikhel Valley Resort", "Dhulikhel Valley Resort"),
+    ("Dakshinkali Home Stay-OYO", "Dakshinkali Home Stay-OYO"),
+    ("Bhaktapur Valley View Resort", "Bhaktapur Valley View Resort"),
+    ("Panauti Hotel", "Panauti Hotel"),
+    ("KU Home Stay", "KU Home Stay"),
+    ("Devithan Valley Resort", "Devithan Valley Resort"),
+    ("Chandeswori Home Stay-OYO", "Chandeswori Home Stay-OYO"),
+    ("Kavre-Bhaktapur Valley Resort", "Kavre-Bhaktapur Valley Resort"),
+    ("Ra.Ts Valley Resort", "Ra.Ts Valley Resort"),
 )
 
 Bed_choice = (
-    ("abc", "abc"),
-    ("bcd", "bcd"),
-    ("efg", "efg"),
-    ("ghi", "ghi"),
-    ("jkl", "jkl"),
+    ("Queen Size Bed", "Queen Size Bed"),
+    ("Deluxe Bed", "Deluxe Bed"),
+    ("Normal Bed", "Normal Bed"),
+    ("Double Bed", "Double Bed"),
+    ("Single Bed", "Single Bed"),
 )
+
 
 class RoomBooking(models.Model):
     Name = models.CharField(max_length=200)
@@ -74,16 +120,14 @@ class RoomBooking(models.Model):
     Country = models.CharField(max_length=100, null=True, blank=True)
     Arrive_Date = models.DateField(max_length=100, null=True, blank=True)
     Depart_Date = models.DateField(max_length=100, null=True, blank=True)
-    Adult = models.CharField(max_length=15, choices = Adult_choice)
-    Children = models.CharField(max_length=15, choices = Children_choice)
-    Destination_Hotel = models.CharField(max_length=100, choices = Destination_Hotel_choice)
-    Room_Type = models.CharField(max_length=100, choices = Room_choice)
-    Choose_Hotel = models.CharField(max_length=100, choices = Choose_Hotel_choice)
-    Bed_type = models.CharField(max_length=15, choices = Bed_choice)
-    Rate = models.FloatField(max_length=100, null=True, blank=True)
+    Adult = models.ForeignKey(Adultfield, on_delete=models.CASCADE, choices=Adult_choice, null=True, blank=True)
+    Children = models.ForeignKey(Childrenfield, on_delete=models.CASCADE, choices=Children_choice, null=True, blank=True)
+    Destination_Hotel = models.CharField(max_length=100, choices=Destination_Hotel_choice, null=True, blank=True)
+    Room_Type = models.ForeignKey(RoomTypefield, on_delete=models.CASCADE, choices=Room_choice, null=True, blank=True)
+    Choose_Hotel = models.CharField(max_length=100, choices=Choose_Hotel_choice)
+    Bed_type = models.ForeignKey(BedTypefield, on_delete=models.CASCADE, choices=Bed_choice, null=True, blank=True)
+    Rate = models.FloatField(Ratefield, max_length= 50, null=True, blank=True)
     Description = models.TextField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.Name
-
-

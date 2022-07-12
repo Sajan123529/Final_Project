@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'UserProfile',
     'rattsoffer',
     'Roombooking',
-    'shop',
     'crispy_forms',
 ]
 

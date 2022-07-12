@@ -7,4 +7,4 @@ from . import models
 
 def LandingPage_View(request):
     current = datetime.now()
-    return render(request,"homepage.html")
+    return render(request,"main.html")
