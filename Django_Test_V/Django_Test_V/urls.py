@@ -20,6 +20,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, re_path
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     #Uncomment the next line to enable the admin:
@@ -29,4 +32,10 @@ urlpatterns = [
     re_path('',include('UserProfile.urls')),
     re_path('',include('rattsoffer.urls')),
     re_path('room/booking/',include('Roombooking.urls', namespace='room-booking')),
+    re_path('',include('Shop.urls')),
 ]
+
+
+# To display images
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

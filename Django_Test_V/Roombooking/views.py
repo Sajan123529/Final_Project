@@ -12,7 +12,7 @@ from .models import *
 
 # Create your views here.
 
-@login_required(login_url="/login/")
+# @login_required(login_url="/login/")
 def BookingPage_view_create_view(request):
     if request.method == "POST":
         form = RoomForm(request.POST)
