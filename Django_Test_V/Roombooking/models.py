@@ -59,6 +59,18 @@ Adult_choice = (
     ("4", "four"),
     ("5", "five"),
 )
+
+Adult_choice = (
+    ("1", "NRS 1200"),
+    ("1", "NRS 1200"),
+    ("1", "NRS 1200"),
+    ("1", "NRS 1200"),
+    ("1", "NRS 1200"),
+    ("2", "two"),
+    ("3", "three"),
+    ("4", "four"),
+    ("5", "five"),
+)
 Children_choice = (
     ("1", "one"),
     ("2", "two"),
@@ -120,13 +132,13 @@ class RoomBooking(models.Model):
     Country = models.CharField(max_length=100, null=True, blank=True)
     Arrive_Date = models.DateField(max_length=100, null=True, blank=True)
     Depart_Date = models.DateField(max_length=100, null=True, blank=True)
-    # Adult = models.ForeignKey(Adultfield, on_delete=models.CASCADE, null=True, blank=True)
-    Children = models.ForeignKey(Childrenfield, on_delete=models.CASCADE, null=True, blank=True)
-    Destination_Hotel = models.CharField(max_length=100, null=True, blank=True)
-    Room_Type = models.ForeignKey(RoomTypefield, on_delete=models.CASCADE, null=True, blank=True)
+    Adult = models.ForeignKey(Adultfield, choices=Adult_choice, on_delete=models.CASCADE, null=True, blank=True)
+    Children = models.ForeignKey(Childrenfield, choices=Children_choice, on_delete=models.CASCADE, null=True, blank=True)
+    Destination_Hotel = models.CharField(choices=Destination_Hotel_choice, max_length=100, null=True, blank=True)
+    Room_Type = models.ForeignKey(RoomTypefield,choices=Room_choice, on_delete=models.CASCADE, null=True, blank=True)
     Choose_Hotel = models.CharField(max_length=100, choices=Choose_Hotel_choice)
-    Bed_type = models.ForeignKey(BedTypefield, on_delete=models.CASCADE, null=True, blank=True)
-    Rate = models.FloatField(Ratefield, max_length= 50, null=True, blank=True)
+    Bed_type = models.ForeignKey(BedTypefield, choices=Bed_choice, on_delete=models.CASCADE, null=True, blank=True)
+    Rate = models.FloatField(Ratefield, max_length=50, null=True, blank=True)
     Description = models.TextField(max_length=100, null=True, blank=True)
 
     def __str__(self):
