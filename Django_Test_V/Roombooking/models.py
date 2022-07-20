@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 from sqlite3 import *
+from django.dispatch import receiver
+from django.db.models.signals import pre_save, post_save
 
 
 # Create your models here.
@@ -13,22 +15,6 @@ class RoomCategory(models.Model):
 
     def __str__(self):
         return self.Room_Category
-
-
-class Adultfield(models.Model):
-    name = models.CharField(max_length=200)
-    Rate = models.IntegerField()
-
-    def __str__(self):
-        return self.name
-
-
-class Childrenfield(models.Model):
-    name = models.CharField(max_length=200)
-    Rate = models.IntegerField()
-
-    def __str__(self):
-        return self.name
 
 
 class RoomTypefield(models.Model):
@@ -47,11 +33,6 @@ class BedTypefield(models.Model):
         return self.name
 
 
-def Ratefield(sender, instance, create, *args, **Kwargs):
-    instance.totalamount = instance.Adultfield.Rate + instance.Childrenfield * instance.RoomTypefield.Rate + instance.BedTypefield.Rate
-    instance.save()
-
-
 Adult_choice = (
     ("1", "one"),
     ("2", "two"),
@@ -60,17 +41,6 @@ Adult_choice = (
     ("5", "five"),
 )
 
-Adult_choice = (
-    ("1", "NRS 1200"),
-    ("1", "NRS 1200"),
-    ("1", "NRS 1200"),
-    ("1", "NRS 1200"),
-    ("1", "NRS 1200"),
-    ("2", "two"),
-    ("3", "three"),
-    ("4", "four"),
-    ("5", "five"),
-)
 Children_choice = (
     ("1", "one"),
     ("2", "two"),
@@ -88,13 +58,13 @@ Destination_Hotel_choice = (
     ("panauti", "panauti"),
 )
 
-Room_choice = (
-    ("with bathroom", "with bathroom"),
-    ("without bathroom", "without bathroom"),
-    ("deluxe room", "deluxe room"),
-    ("super deluxe room", "super deluxe room"),
-    ("normal room", "normal room"),
-)
+# Room_choice = (
+#     ("with bathroom", "with bathroom"),
+#     ("without bathroom", "without bathroom"),
+#     ("deluxe room", "deluxe room"),
+#     ("super deluxe room", "super deluxe room"),
+#     ("normal room", "normal room"),
+# )
 
 Choose_Hotel_choice = (
     ("Annapurna", "Annapurna"),
@@ -112,13 +82,14 @@ Choose_Hotel_choice = (
     ("Ra.Ts Valley Resort", "Ra.Ts Valley Resort"),
 )
 
-Bed_choice = (
-    ("Queen Size Bed", "Queen Size Bed"),
-    ("Deluxe Bed", "Deluxe Bed"),
-    ("Normal Bed", "Normal Bed"),
-    ("Double Bed", "Double Bed"),
-    ("Single Bed", "Single Bed"),
-)
+
+# Bed_choice = (
+#     ("Queen Size Bed", "Queen Size Bed"),
+#     ("Deluxe Bed", "Deluxe Bed"),
+#     ("Normal Bed", "Normal Bed"),
+#     ("Double Bed", "Double Bed"),
+#     ("Single Bed", "Single Bed"),
+# )
 
 
 class RoomBooking(models.Model):
@@ -132,14 +103,21 @@ class RoomBooking(models.Model):
     Country = models.CharField(max_length=100, null=True, blank=True)
     Arrive_Date = models.DateField(max_length=100, null=True, blank=True)
     Depart_Date = models.DateField(max_length=100, null=True, blank=True)
-    Adult = models.ForeignKey(Adultfield, choices=Adult_choice, on_delete=models.CASCADE, null=True, blank=True)
-    Children = models.ForeignKey(Childrenfield, choices=Children_choice, on_delete=models.CASCADE, null=True, blank=True)
+    Adult = models.CharField(max_length=100, choices=Adult_choice, null=True, blank=True)
+    Children = models.CharField(max_length=100, choices=Children_choice, null=True, blank=True)
     Destination_Hotel = models.CharField(choices=Destination_Hotel_choice, max_length=100, null=True, blank=True)
-    Room_Type = models.ForeignKey(RoomTypefield,choices=Room_choice, on_delete=models.CASCADE, null=True, blank=True)
+    Room_Type = models.ForeignKey(RoomTypefield, on_delete=models.CASCADE, null=True, blank=True)
     Choose_Hotel = models.CharField(max_length=100, choices=Choose_Hotel_choice)
-    Bed_type = models.ForeignKey(BedTypefield, choices=Bed_choice, on_delete=models.CASCADE, null=True, blank=True)
-    Rate = models.FloatField(Ratefield, max_length=50, null=True, blank=True)
+    Bed_type = models.ForeignKey(BedTypefield, on_delete=models.CASCADE, null=True, blank=True)
+    Rate = models.FloatField(max_length=50, null=True, blank=True)
     Description = models.TextField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.Name
+
+
+@receiver(post_save, sender=RoomBooking)
+def Price(sender, instance, created, *args, **Kwargs):
+    rate = instance.Rate
+    print(instance.Rate,":::::::::::Instance:::::::::::::;;;")
+    rate.save()

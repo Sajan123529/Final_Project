@@ -15,8 +15,10 @@ from .models import *
 # @login_required(login_url="/login/")
 def BookingPage_view_create_view(request):
     if request.method == "POST":
+        print(":::::::::::::::::POST::::::::::::::::::::::::::::::::::::::::::")
         form = RoomForm(request.POST)
         if form.is_valid():
+            print("::::::::::::::::::::Form valid:::::::::::::::::::::::::::::::::::::::")
             Name = form.cleaned_data['Name']
             Email = form.cleaned_data['Email']
             Phone = form.cleaned_data['Phone']
@@ -31,6 +33,7 @@ def BookingPage_view_create_view(request):
             Children = form.cleaned_data['Children']
             Destination_Hotel = form.cleaned_data['Destination_Hotel']
             Room_Type = form.cleaned_data['Room_Type']
+            print(Room_Type,":::::::::::::::::::::::::::::::::::")
             Choose_Hotel = form.cleaned_data['Choose_Hotel']
             Bed_type = form.cleaned_data['Bed_type']
             Rate = form.cleaned_data['Rate']
@@ -68,9 +71,12 @@ def BookingPage_view_create_view(request):
             'form': form,
             'Adult_choice': Adult_choice,
             'Children_choice': Children_choice,
-            'Destination_Hotel_choice':Destination_Hotel_choice,
-            'Room_choice': Room_choice,
-            'Choose_Hotel_choice':Choose_Hotel_choice,
-            'Bed_choice': Bed_choice,
+            'Destination_Hotel_choice': Destination_Hotel_choice,
+            'Room_Type': RoomTypefield.objects.all(),
+            'Choose_Hotel_choice': Choose_Hotel_choice,
+            'Bed_type': BedTypefield.objects.all(),
         }
         return render(request, 'roombooking.html', context)
+
+
+
