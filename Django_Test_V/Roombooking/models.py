@@ -116,8 +116,8 @@ class RoomBooking(models.Model):
         return self.Name
 
 
-@receiver(post_save, sender=RoomBooking)
-def Price(sender, instance, created, *args, **Kwargs):
-    rate = instance.Rate
-    print(instance.Rate,":::::::::::Instance:::::::::::::;;;")
-    rate.save()
+# @receiver(post_save, sender=RoomBooking)
+# def Price(sender, instance, created, *args, **Kwargs):
+#     rate = instance.Rate
+#     print(instance.Rate,":::::::::::Instance:::::::::::::;;;")
+#     rate.save()

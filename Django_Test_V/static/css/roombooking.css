@@ -301,7 +301,7 @@ a {
     text-decoration: none;
 }
 
-.Total_Amount {
+.Total_Amount p {
     text-align: left;
     font-size: 2rem;
     font-weight: bolder;
