@@ -64,7 +64,16 @@ def BookingPage_view_create_view(request):
             return redirect(reverse('room-booking:booking'))
         else:
             print("Error Occured::: ", form.errors)
-            return render(request, 'roombooking.html', {'form': form})
+            context = {
+                'form': form,
+                'Adult_choice': Adult_choice,
+                'Children_choice': Children_choice,
+                'Destination_Hotel_choice': Destination_Hotel_choice,
+                'Room_Type': RoomTypefield.objects.all(),
+                'Choose_Hotel_choice': Choose_Hotel_choice,
+                'Bed_type': BedTypefield.objects.all(),
+            }
+            return render(request, 'roombooking.html', context, {'form': form})
     else:
         form = RoomForm()
         context = {
